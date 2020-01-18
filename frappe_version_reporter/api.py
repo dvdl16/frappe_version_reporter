@@ -115,6 +115,7 @@ def get_frappe_app_versions(format='prtg'):
                     channel['value'] = 4
             else:
                 channel['value'] = 4
+            channel['ValueLookup'] = 'vdl.frappeversioncheck'
             prtg_obj['result'].append(channel)
         return(prtg_obj)
     else:
