@@ -101,7 +101,7 @@ def get_frappe_app_versions(format='prtg'):
         # Reformat list to acceptable PRTG JSON output
         prtg_obj = {}
         prtg_obj['prtg'] = {}
-        prtg_obj['prtg']['result'] = []
+        prtg_obj['prtg']['result'] = {}
         for app in app_list:
             channel = {}
             channel['channel'] = app['name']
@@ -117,7 +117,7 @@ def get_frappe_app_versions(format='prtg'):
             else:
                 channel['value'] = 4
             channel['valuelookup'] = 'vdl.frappeversioncheck'
-            prtg_obj['prtg']['result'].append(channel)
+            prtg_obj['prtg']['result'][app['name']] = channel
         return(prtg_obj)
     else:
         return(app_list)
